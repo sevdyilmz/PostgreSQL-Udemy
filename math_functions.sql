@@ -1,11 +1,11 @@
-SELECT ROUND(14.45),
-	   ROUND(14.45,1),
-       CEIL(14.45),
-       FLOOR(14.45), 
-       ABS(-5.78),
-       POWER(4,3),
-       SIGN(-5),
-       TRUNC(4836.98);
+SELECT ROUND(14.45),   //14
+	   ROUND(14.45,1),  //14.5
+       CEIL(14.45),  //15
+       FLOOR(14.45), //14
+       ABS(-5.78),  //5.78
+       POWER(4,3),  //64
+       SIGN(-5),  //-1
+       TRUNC(4836.98);   //4836
 
 
 //math functions
