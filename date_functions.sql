@@ -4,7 +4,7 @@ localtime,   //time without time zone
 now(),   //timestamp with time zone
 timeofday();  //text like Mon Nov 11 16:14:31.835475 2024 GMT
 
-// examples
+--examples
 
 select first_name,
 last_name,
@@ -13,7 +13,7 @@ AGE(hire_date) as age_of_hire
 
 from employees;
 
-//  date_part
+--  date_part
 
 select current_date,
 
@@ -50,7 +50,7 @@ show timezone;
 SET TIME ZONE  'UTC';
 
 
-/// extract
+-- extract
 
 SELECT CURRENT_DATE,
 EXTRACT (CENTURY FROM CURRENT_DATE) as century_,
@@ -78,3 +78,33 @@ DATE_TRUNC('day', TIMESTAMP '2023-04-17 06:12:38') as day_,
 DATE_TRUNC('hour', TIMESTAMP '2023-04-17 06:12:38') as hour_,
 DATE_TRUNC('minute', TIMESTAMP '2023-04-17 06:12:38') as minute_,
 DATE_TRUNC('second', TIMESTAMP '2023-04-17 06:12:38') as second_;
+
+
+
+-- exercise
+-- Using today's date, create an output like the one below. And do it in 2 different ways.
+-- Quarter is :4, Years is: 2022 Month is: 12 Doy is:361
+
+SELECT current_date,
+date_part ('quarter', current_date) as quarter_,
+date_part ('year', current_date) as year_,
+date_part ('month', current_date) as month_,
+date_part ('doy', current_date) as doy_;
+
+
+--with date_part
+SELECT
+
+'Quarter is:' || date_part ('quarter', current_date)|| ',',
+'Year is:' || date_part ('year', current_date)|| ',',
+'Month is:' || date_part ('month', current_date)|| ',',
+'Doy is:' || date_part ('doy', current_date)|| ',';
+
+
+--with extract
+SELECT
+
+'Quarter is:' || Extract (quarter from current_date)|| ',',
+'Year is:' || Extract (year from current_date)|| ',',
+'Month is:' || Extract (month from current_date)|| ',',
+'Doy is:' || Extract (doy from current_date)|| ',';
